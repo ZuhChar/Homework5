@@ -24,6 +24,7 @@
 void _ls(const char *dir,int op_a,int op_l,int op_n, int op_h)
 {
     char access;
+    char userName;
     int userID;
     char date;
     char group;
@@ -54,6 +55,8 @@ void _ls(const char *dir,int op_a,int op_l,int op_n, int op_h)
 			continue;
 		if(op_l){
             userID = geteuid();
+            userName = getlogin_r();
+            group = getgrgid();
         }
         printf("%s %d ", d->d_name, userID);
 	}
