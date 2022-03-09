@@ -1,0 +1,33 @@
+main function(argc, argv){ 
+    if there is no arguments{
+        then carryout the ls operation on the current directory with no options
+    }
+    for the amount of arguments provided
+    {
+        if there are any options{
+            if there are any pathnames{
+                if there is an incorrect pathname or an option provided after a pathname{
+                    provide an error message stating that wyls is not being used correctly
+                }
+                carryout the ls operation on the pathnames with the options provided
+            }
+            else{
+                carryout the ls operation on the current directory with the options provided
+            }
+        }
+        else if there are no options but there are pathnames provided
+        {
+            if there is an incorrect pathname or an option provided after a pathname{
+                provide an error message stating that wyls is not being used correctly
+            } 
+            else
+            {
+                carryout the ls operation on the pathnames
+            }
+        }
+        else
+        {
+            carryout the ls operation on the current directory
+        }
+    }
+}
