@@ -53,7 +53,7 @@ void _ls(const char *dir,int op_a,int op_l,int op_n, int op_h)
 		if (!op_a && d->d_name[0] == '.')
 			continue;
 		if(op_l){
-            userID = getuid();
+            userID = geteuid();
         }
         printf("%s %d ", d->d_name, userID);
 	}
