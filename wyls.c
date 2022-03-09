@@ -55,7 +55,7 @@ void _ls(const char *dir,int op_a,int op_l,int op_n, int op_h)
 		if(op_l){
             userID = getuid();
         }
-        printf("%s  ", d->d_name);
+        printf("%s %d ", d->d_name, userID);
 	}
 	if(!op_l)
 	printf("\n");
