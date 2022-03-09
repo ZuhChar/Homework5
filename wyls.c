@@ -24,7 +24,7 @@
 void _ls(const char *dir,int op_a,int op_l,int op_n, int op_h)
 {
     char access;
-    char userID;
+    int userID;
     char date;
     char group;
     int size;
