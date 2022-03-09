@@ -35,9 +35,10 @@
 //     }
 //     return 0;
 // }
-int main(void)
+int main(int argc, char **argv)
 {
-    struct dirent *de;  // Pointer for directory entry
+    if(argc == 1){
+        struct dirent *de;  // Pointer for directory entry
   
     // opendir() returns a pointer of DIR type. 
     DIR *dr = opendir(".");
@@ -55,4 +56,5 @@ int main(void)
   
     closedir(dr);    
     return 0;
+    }
 }
