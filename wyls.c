@@ -58,7 +58,7 @@ void _ls(const char *dir,int op_a,int op_l,int op_n, int op_h)
             userName = getlogin();
             group = getgid();
         }
-        printf("%s %d %s %s", d->d_name, userID, group, userName);
+        printf("%s %d %d %s", d->d_name, userID, group, userName);
 	}
 	if(!op_l)
 	printf("\n");
