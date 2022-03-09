@@ -52,7 +52,7 @@ int main(int argc, char **argv)
     // Refer http://pubs.opengroup.org/onlinepubs/7990989775/xsh/readdir.html
     // for readdir()
     while ((de = readdir(dr)) != NULL)
-            if(de->d_name == "." || de->d_name == ".."){
+            if(de->d_name != "." || de->d_name != ".."){
             printf("%s\n", de->d_name);
             }
   
