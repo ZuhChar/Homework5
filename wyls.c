@@ -15,6 +15,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <dirent.h>
 
 // int main(int argc, char **argv){
 //     //What to do if no arguments are provided.
