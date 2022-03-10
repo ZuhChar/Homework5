@@ -75,7 +75,7 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 			userName = getlogin();
 			group = getgid();
 			groupName = getgrnam(userName);
-			printf("%s\t%d\t%d\t%s\n", d->d_name, userName, group, userName);
+			printf("%s\t%d\t%d\t%s\n", d->d_name, userName, groupName, userName);
 		}
 	}
 	if (!op_l)
