@@ -33,7 +33,7 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 	int group;
 	int size;
 	int readSize;
-	struct group * groupName;
+	struct group *groupName;
 
 	struct stat fileStat;
 
@@ -74,8 +74,9 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 			userID = geteuid();
 			userName = getlogin();
 			group = getgid();
+			groupName = getgrgid(group);
 			//groupName->gr_name = getgrnam(userName);
-			printf(" %s\t%s\t%s\t%s\n", userName, group->gr_name, userName, d->d_name);
+			printf(" %s\t%s\t%s\t%s\n", userName, groupName->gr_name, userName, d->d_name);
 		}
 	}
 	if (!op_l)
