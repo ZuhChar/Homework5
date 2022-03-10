@@ -78,11 +78,11 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 			group = getgid();
 			groupName = getgrgid(group);
 			stat(dh, &st);
-			size = dh.st_size;
+			size = dh->st_size;
 			stat(dh, &datestat);
-			date = dh.st_mtime;
+			date = dh->st_mtime;
 			//groupName->gr_name = getgrnam(userName);
-			printf(" %s %s %d %d %s\n", userName, groupName->gr_name, size, date->, d->d_name);
+			printf(" %s %s %d %d %s\n", userName, groupName->gr_name, size, date, d->d_name);
 		}
 	}
 	if (!op_l)
