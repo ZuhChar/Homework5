@@ -34,6 +34,7 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 	struct stat st;
 	int readSize;
 	struct group *groupName;
+	int size;
 
 	struct stat fileStat;
 
