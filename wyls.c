@@ -82,7 +82,7 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 			// stat(dh, &datestat);
 			// date = dh->st_mtime;
 			//groupName->gr_name = getgrnam(userName);
-			printf(" %s %s %5ld %d %s\n", userName, groupName->gr_name, fileStat.st_size, date, d->d_name);
+			printf(" %s %s %5ld %s\n", userName, groupName->gr_name, fileStat.st_size, d->d_name);
 		}
 	}
 	if (!op_l)
