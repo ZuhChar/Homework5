@@ -29,7 +29,7 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 	char access;
 	char *userName;
 	int userID;
-	char date;
+	struct stat date;
 	int group;
 	struct stat st;
 	int readSize;
@@ -78,8 +78,9 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 			groupName = getgrgid(group);
 			stat(dh, &st);
 			size = st.st_size;
+			stat(d, &date);
 			//groupName->gr_name = getgrnam(userName);
-			printf(" %s %s %d %s\n", userName, groupName->gr_name, size, d->d_name);
+			printf(" %s %s %d %s %s\n", userName, groupName->gr_name, size, ctime(&date.st_mtime), d->d_name);
 		}
 	}
 	if (!op_l)
