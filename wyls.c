@@ -33,8 +33,8 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 	struct stat st;
 	int readSize;
 	struct group *groupName;
-	int size;
-	char date;
+	// int size;
+	// char date;
 
 	struct stat fileStat;
 
@@ -77,10 +77,10 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 			userName = getlogin();
 			group = getgid();
 			groupName = getgrgid(group);
-			stat(dh, &st);
-			size = dh->st_size;
-			stat(dh, &datestat);
-			date = dh->st_mtime;
+			// stat(dh, &st);
+			// size = dh->st_size;
+			// stat(dh, &datestat);
+			// date = dh->st_mtime;
 			//groupName->gr_name = getgrnam(userName);
 			printf(" %s %s %5ld %d %s\n", userName, groupName->gr_name, fileStat.st_size, date, d->d_name);
 		}
