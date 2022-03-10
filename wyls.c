@@ -22,7 +22,7 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-
+#include <grp.h>
 
 void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 {
@@ -75,7 +75,7 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 			userName = getlogin();
 			group = getgid();
 			groupName = getgrnam(userName);
-			printf("%s\t%s\t%s\t%s\n", userName, groupName, userName, d->d_name);
+			printf(" %s\t%s\t%s\t%s\n", userName, groupName, userName, d->d_name);
 		}
 	}
 	if (!op_l)
