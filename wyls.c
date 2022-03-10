@@ -36,10 +36,6 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 	// int size;
 	// char date;
 
-	struct stat fileStat;
-
-	stat(dir, &fileStat);
-
 	struct dirent *d;
 	DIR *dh = opendir(dir);
 	if (!dh)
@@ -64,7 +60,10 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 			continue;
 		if (op_l)
 		{
+			struct stat fileStat;
 
+			stat(dir, &fileStat);
+			
 			printf((S_ISDIR(fileStat.st_mode)) ? "d" : "-");
 			printf((fileStat.st_mode & S_IRUSR) ? "r" : "-");
 			printf((fileStat.st_mode & S_IWUSR) ? "w" : "-");
@@ -83,7 +82,7 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 			// size = dh->st_size;
 			// stat(dh, &datestat);
 			// date = dh->st_mtime;
-			//groupName->gr_name = getgrnam(userName);
+			// groupName->gr_name = getgrnam(userName);
 			printf(" %s %s %5ld %s\n", userName, groupName->gr_name, fileStat.st_size, d->d_name);
 		}
 	}
