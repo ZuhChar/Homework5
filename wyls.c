@@ -80,7 +80,7 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 			size = st.st_size;
 			stat(d, &date);
 			//groupName->gr_name = getgrnam(userName);
-			printf(" %s %s %d %s %s\n", userName, groupName->gr_name, size, ctime(&date.st_mtime), d->d_name);
+			printf(" %s %s %d %d %s\n", userName, groupName->gr_name, size, ctime(&date.st_mtime), d->d_name);
 		}
 	}
 	if (!op_l)
