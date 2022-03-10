@@ -56,13 +56,21 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 	// While the next entry is not readable we will print directory files
 	while ((d = readdir(dh)) != NULL)
 	{
+		struct stat fileStat;
+
+			stat(d->d_name, &fileStat);
 		userID = geteuid();
 			userName = getlogin();
 			group = getgid();
 			groupName = getgrgid(group);
+			int size;
 		// If hidden files are found we continue
 		if (!op_a && d->d_name[0] == '.')
 			continue;
+		if(op_h)
+		{
+			size = fileStat.st_size/1000
+		}
 		if(op_n)
 		{
 			struct stat fileStat;
@@ -84,14 +92,10 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 			// stat(dh, &datestat);
 			// date = dh->st_mtime;
 			// groupName->gr_name = getgrnam(userName);
-			printf(" 1 %d %d %5ld %s %s\n", userID, group, fileStat.st_size, ctime(&fileStat.st_mtime),d->d_name);
+			printf(" 1 %d %d %5ld %s %s\n", userID, group, size, ctime(&fileStat.st_mtime),d->d_name);
 		}
 		if (op_l && !op_n)
 		{
-			struct stat fileStat;
-
-			stat(d->d_name, &fileStat);
-
 			printf((S_ISDIR(fileStat.st_mode)) ? "d" : "-");
 			printf((fileStat.st_mode & S_IRUSR) ? "r" : "-");
 			printf((fileStat.st_mode & S_IWUSR) ? "w" : "-");
@@ -107,7 +111,7 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 			// stat(dh, &datestat);
 			// date = dh->st_mtime;
 			// groupName->gr_name = getgrnam(userName);
-			printf(" 1 %s %s %5ld %s %s\n", userName, groupName->gr_name, fileStat.st_size, ctime(&fileStat.st_mtime),d->d_name);
+			printf(" 1 %s %s %5ld %s %s\n", userName, groupName->gr_name, size, ctime(&fileStat.st_mtime),d->d_name);
 		}
 	}
 	if (!op_l)
