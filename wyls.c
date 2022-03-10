@@ -33,7 +33,7 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 	int group;
 	int size;
 	int readSize;
-	char * groupName;
+	struct group * groupName;
 
 	struct stat fileStat;
 
