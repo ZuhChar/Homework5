@@ -23,6 +23,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <grp.h>
+#include <time.h>
 
 void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 {
@@ -83,7 +84,7 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 			// stat(dh, &datestat);
 			// date = dh->st_mtime;
 			// groupName->gr_name = getgrnam(userName);
-			printf(" 1 %s %s %5ld %ld %s\n", userName, groupName->gr_name, fileStat.st_size, fileStat.st_mtime,d->d_name);
+			printf(" 1 %s %s %5ld %s %s\n", userName, groupName->gr_name, fileStat.st_size, ctime(&fileStat.st_mtime),d->d_name);
 		}
 	}
 	if (!op_l)
