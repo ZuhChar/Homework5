@@ -34,8 +34,7 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 	int readSize;
 
 	struct stat fileStat;
-	if (stat(argv[1], &fileStat) < 0)
-		return 1;
+	
 	struct dirent *d;
 	DIR *dh = opendir(dir);
 	if (!dh)
