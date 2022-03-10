@@ -23,6 +23,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
+
 void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 {
 	char access;
@@ -32,9 +33,10 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 	int group;
 	int size;
 	int readSize;
+	char * groupName;
 
 	struct stat fileStat;
-	
+
 	struct dirent *d;
 	DIR *dh = opendir(dir);
 	if (!dh)
@@ -72,7 +74,8 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 			userID = geteuid();
 			userName = getlogin();
 			group = getgid();
-			printf("%s %d %d %s\n", d->d_name, userID, group, userName);
+			groupName = getgrnam(userName);
+			printf("%s\t%d\t%d\t%s\n", d->d_name, userName, group, userName);
 		}
 	}
 	if (!op_l)
