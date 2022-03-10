@@ -31,7 +31,7 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 	int userID;
 	char date;
 	int group;
-	struct stat st size;
+	struct stat size;
 	int readSize;
 	struct group *groupName;
 
