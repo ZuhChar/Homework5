@@ -69,7 +69,7 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 			continue;
 		if(op_h)
 		{
-			size = fileStat.st_size/1000
+			size = fileStat.st_size/1000;
 		}
 		if(op_n)
 		{
@@ -92,7 +92,7 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 			// stat(dh, &datestat);
 			// date = dh->st_mtime;
 			// groupName->gr_name = getgrnam(userName);
-			printf(" 1 %d %d %5ld %s %s\n", userID, group, size, ctime(&fileStat.st_mtime),d->d_name);
+			printf(" 1 %d %d %d %s %s\n", userID, group, size, ctime(&fileStat.st_mtime),d->d_name);
 		}
 		if (op_l && !op_n)
 		{
@@ -111,7 +111,7 @@ void _ls(const char *dir, int op_a, int op_l, int op_n, int op_h)
 			// stat(dh, &datestat);
 			// date = dh->st_mtime;
 			// groupName->gr_name = getgrnam(userName);
-			printf(" 1 %s %s %5ld %s %s\n", userName, groupName->gr_name, size, ctime(&fileStat.st_mtime),d->d_name);
+			printf(" 1 %s %s %d %s %s\n", userName, groupName->gr_name, size, ctime(&fileStat.st_mtime),d->d_name);
 		}
 	}
 	if (!op_l)
