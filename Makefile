@@ -12,7 +12,7 @@ CC= gcc
 CFLAGS= -Wall -ggdb
 RM= rm -f
 
-.PHONY: wyls clean tidy
+.PHONY: clean tidy
 
 wyls: wyls.c
 	$(CC) $(CFLAGS) wyls.c -o wyls
